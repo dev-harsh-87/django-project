@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">My Dashboard</h1>
+            <div>
+                <a href="{% url 'home' %}" class="px-4 py-2 hover:bg-blue-700 rounded">Home</a>
+                <a href="{% url 'login' %}" class="px-4 py-2 hover:bg-blue-700 rounded">Login</a>
+                <a href="{% url 'register' %}" class="px-4 py-2 hover:bg-blue-700 rounded">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-8">
+
+        <!-- Welcome Card -->
+        <div class="bg-white rounded-2xl shadow-lg p-6 mb-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-2">Welcome to the Dashboard</h2>
+            <p class="text-gray-600">Here you can view your data and manage your account.</p>
+        </div>
+
+        <!-- Table Section -->
+        <div class="bg-white rounded-2xl shadow-lg p-6">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">User Data</h3>
+            <div class="overflow-x-auto">
+                <table class="min-w-full bg-white border border-gray-200">
+                    <thead>
+                        <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+                            <th class="py-3 px-6 text-left">Sr No.</th>
+                            <th class="py-3 px-6 text-left">Username</th>
+                            <th class="py-3 px-6 text-left">Age</th>
+                            <th class="py-3 px-6 text-left">Date Joined</th>
+                        </tr>
+                    </thead>
+                    <tbody class="text-gray-700 text-sm">
+    {% for people in peoples %}
+    <tr class="border-b border-gray-200 hover:bg-gray-50">
+        <td class="py-3 px-6">{{ forloop.counter }}</td>
+        <td class="py-3 px-6">{{ people.name }}</td>
+        <td class="py-3 px-6">{{ people.age }}</td>
+        <td class="py-3 px-6">{{ people.date }}</td>
+    </tr>
+    {% endfor %}
+</tbody>
+
+                </table>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-700 mt-8 py-4 text-center">
+        &copy; 2025 My Dashboard. All rights reserved.
+    </footer>
+
+</body>
+</html>
