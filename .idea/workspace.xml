@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f83f4c3-f82a-4747-9875-3dc5e886776f" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/DjangoProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/templates/login.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/templates/register.html" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/templates/register.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/authentication/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vege/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/vege/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vege/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/vege/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vege/templates/recipes.html" beforeDir="false" afterPath="$PROJECT_DIR$/vege/templates/recipes.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vege/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vege/views.py" afterDir="false" />
-    </list>
+    <list default="true" id="7f83f4c3-f82a-4747-9875-3dc5e886776f" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,7 +129,7 @@
       <workItem from="1759558931805" duration="17720000" />
       <workItem from="1759582915561" duration="6000" />
       <workItem from="1759725732198" duration="20766000" />
-      <workItem from="1759836879836" duration="298000" />
+      <workItem from="1759836879836" duration="406000" />
     </task>
     <task id="LOCAL-00001" summary="curd and normal things done">
       <option name="closed" value="true" />
