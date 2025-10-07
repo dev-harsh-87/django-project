@@ -17,7 +17,7 @@ Including another URLconf
 
 from django.contrib import admin
 from django.urls import path
-from authentication.views import login, register
+from authentication.views import user_login, user_register, user_profile, user_logout
 from home.views import home
 from vege.views import recipes, recipe_delete, recipe_edit
 
@@ -26,8 +26,12 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path('', home, name='home'),
-    path('login',login, name='login' ),
-    path('register',register, name='register' ),
+    path('login',user_login, name='login' ),
+
+    path('profile', user_profile, name='profile' ),
+    path('register',user_register, name='register' ),
+
+    path('logout',user_logout, name='logout' ),
 
     path('recipes',recipes, name='recipes' ),
     path('recipe_delete/<recipe_id>/',recipe_delete, name='recipe_delete' ),

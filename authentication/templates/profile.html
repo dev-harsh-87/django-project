@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 font-sans">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white p-4 shadow-md">
+        <div class="container mx-auto flex justify-between items-center">
+            <h1 class="text-xl font-bold">My Recipe Dashboard</h1>
+            <div>
+                <a href="{% url 'home' %}" class="px-4 py-2 hover:bg-blue-700 rounded">Home</a>
+                <a href="{% url 'recipes' %}" class="px-4 py-2 hover:bg-blue-700 rounded">Recipes</a>
+                <a href="{% url 'profile' %}" class="px-4 py-2 hover:bg-blue-700 rounded">Profile</a>
+                <a href="{% url 'logout' %}" class="px-4 py-2 hover:bg-blue-700 rounded">Logout</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container mx-auto mt-10">
+
+        <div class="max-w-3xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+            <h2 class="text-2xl font-bold text-gray-800 mb-6 text-center">Your Profile</h2>
+
+            {% if messages %}
+                <div class="mb-4">
+                    {% for message in messages %}
+                        <div class="px-4 py-3 rounded-lg mb-2 text-white
+                                    {% if message.tags == 'error' %}bg-red-500{% elif message.tags == 'success' %}bg-green-500{% else %}bg-blue-500{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <div class="flex flex-col md:flex-row items-center md:items-start mb-6">
+                <!-- Profile Picture -->
+                <div class="mb-6 md:mb-0 md:mr-8">
+                    {% if user_data.profile.image %}
+                        <img src="{{ user_data.profile.image.url }}" alt="Profile Picture"
+                             class="h-32 w-32 object-cover rounded-full border-4 border-indigo-600">
+                    {% else %}
+                        <div class="h-32 w-32 flex items-center justify-center rounded-full bg-gray-200 text-gray-500 text-xl border-4 border-indigo-600">
+                            {{ user_data.username|slice:":1"|upper }}
+                        </div>
+                    {% endif %}
+                </div>
+
+                <!-- User Info -->
+                <div class="flex-1">
+                    <p class="text-gray-700 mb-2"><span class="font-semibold">Username:</span> {{ user_data.username }}</p>
+                    <p class="text-gray-700 mb-2"><span class="font-semibold">Email:</span> {{ user_data.email }}</p>
+                    <p class="text-gray-700 mb-2"><span class="font-semibold">Date Joined:</span> {{ user.date_joined|date:"F j, Y" }}</p>
+                    <a href="#"
+                       class="inline-block mt-4 bg-indigo-600 text-white px-6 py-2 rounded-lg hover:bg-indigo-700 transition">
+                        Edit Profile
+                    </a>
+                </div>
+            </div>
+
+            <!-- Optional: Show user's recipes -->
+            <div>
+                <h3 class="text-xl font-semibold text-gray-800 mb-4">Your Recipes</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {% for recipe in user_recipes %}
+                        <div class="bg-gray-50 rounded-lg p-4 shadow hover:shadow-md transition">
+                            <img src="{{ recipe.recipe_image.url }}" alt="{{ recipe.recipe_name }}" class="h-40 w-full object-cover rounded mb-2">
+                            <h4 class="font-semibold text-gray-800">{{ recipe.recipe_name }}</h4>
+                            <p class="text-gray-600 text-sm">{{ recipe.recipe_description|truncatewords:15 }}</p>
+                        </div>
+                    {% empty %}
+                        <p class="text-gray-500">You haven't added any recipes yet.</p>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-200 text-gray-700 mt-10 py-4 text-center">
+        &copy; 2025 My Recipe Dashboard. All rights reserved.
+    </footer>
+
+</body>
+</html>
