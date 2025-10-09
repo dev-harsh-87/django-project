@@ -1,7 +1,11 @@
 from django.contrib.auth.decorators import login_required
+from django.core.paginator import Paginator
 from django.shortcuts import render, redirect
 
-from vege.models import Recipe
+from authentication.models import Student
+from vege.models import Recipe, Students, SubjectMarks
+from django.db.models import Q, Sum
+
 
 @login_required(login_url='/login')
 def recipes(request):
@@ -48,3 +52,24 @@ def recipe_edit(request, recipe_id):
     context = {"recipeData": recipe}
     return render(request, "update-recipe.html", context)
 
+
+def get_students(request):
+
+    students = Students.objects.all().order_by('id')
+
+    if request.GET.get('search_text'):
+        students = students.filter(
+            Q(student_name__icontains=request.GET.get('search_text')) |
+            Q(department__department__icontains=request.GET.get('search_text')),)
+
+    paginator = Paginator(students, 12)  # Show 5 students per page
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {"page_obj": page_obj}
+
+    return  render(request, 'students.html', context)
+
+def get_student_details(request, student_id):
+    student_marks = SubjectMarks.objects.filter(student__student_id__student_id = student_id)
+    total_marks = student_marks.aggregate(total_marks=Sum('marks'))
+    return render(request, 'student-details.html', {'student_marks': student_marks , 'total_marks': total_marks})

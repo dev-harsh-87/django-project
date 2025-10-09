@@ -4,7 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f83f4c3-f82a-4747-9875-3dc5e886776f" name="Changes" comment="" />
+    <list default="true" id="7f83f4c3-f82a-4747-9875-3dc5e886776f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/vege/migrations/0005_subject_subjectmarks.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vege/templates/common.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vege/templates/student-details.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vege/templates/students.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DjangoProject/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/DjangoProject/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/authentication/templates/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/authentication/templates/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vege/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/vege/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vege/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/vege/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vege/seed.py" beforeDir="false" afterPath="$PROJECT_DIR$/vege/seed.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vege/templates/recipes.html" beforeDir="false" afterPath="$PROJECT_DIR$/vege/templates/recipes.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vege/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/vege/views.py" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +33,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -56,8 +73,10 @@
     &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.pycharm.django.structure.promotion.once.per.project&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/harsh/Development/DjangoProject&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -130,6 +149,12 @@
       <workItem from="1759582915561" duration="6000" />
       <workItem from="1759725732198" duration="20766000" />
       <workItem from="1759836879836" duration="406000" />
+      <workItem from="1759837289608" duration="37000" />
+      <workItem from="1759993474765" duration="14000" />
+      <workItem from="1759993681787" duration="1215000" />
+      <workItem from="1759999901186" duration="9434000" />
+      <workItem from="1760011907748" duration="2333000" />
+      <workItem from="1760014479553" duration="979000" />
     </task>
     <task id="LOCAL-00001" summary="curd and normal things done">
       <option name="closed" value="true" />

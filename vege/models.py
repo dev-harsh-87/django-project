@@ -10,6 +10,12 @@ class Recipe(models.Model):
     recipe_description = models.TextField()
     recipe_image = models.ImageField(upload_to='recipe_images')
 
+class Subject(models.Model):
+    subject_name = models.CharField(max_length=100)
+
+    def __str__(self):
+        return self.subject_name
+
 
 class Department(models.Model):
     department = models.CharField(max_length=100)
@@ -42,5 +48,17 @@ class Students(models.Model):
     class Meta:
         ordering = ['student_name']
         verbose_name = 'student'
+
+
+class SubjectMarks(models.Model):
+    student = models.ForeignKey(Students, on_delete=models.CASCADE, related_name='studentmarks')
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE,)
+    marks = models.IntegerField()
+
+    class Meta:
+        unique_together = ('student', 'subject')
+
+    def __str__(self):
+        return f'{self.student.student_name} - {self.subject.subject_name}'
 
 

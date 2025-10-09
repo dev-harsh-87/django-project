@@ -19,7 +19,7 @@ from django.contrib import admin
 from django.urls import path
 from authentication.views import user_login, user_register, user_profile, user_logout
 from home.views import home
-from vege.views import recipes, recipe_delete, recipe_edit
+from vege.views import recipes, recipe_delete, recipe_edit, get_students, get_student_details
 
 from django.conf import settings
 from django.conf.urls.static import static
@@ -36,6 +36,9 @@ urlpatterns = [
     path('recipes',recipes, name='recipes' ),
     path('recipe_delete/<recipe_id>/',recipe_delete, name='recipe_delete' ),
     path('recipe_edit/<recipe_id>/', recipe_edit, name='recipe_edit' ),
+
+    path('students', get_students, name='students' ),
+    path('student-details/<str:student_id>/', get_student_details, name='student_details'),
 
     path('admin/', admin.site.urls),
 ]

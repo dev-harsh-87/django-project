@@ -7,6 +7,16 @@ from .models import *
 
 fake = Faker()
 
+def seed_marks(n):
+    try:
+        student_data = Students.objects.all()
+        for student in student_data:
+            subject_data = Subject.objects.all()
+            for subject in subject_data:
+                SubjectMarks.objects.create(student=student, subject=subject, marks=random.randint(1, 100))
+    except Exception as e:
+        print(e)
+
 def seed_db(n=10) -> None:
    try:
        for _ in range(0, n):

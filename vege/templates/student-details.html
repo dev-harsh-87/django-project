@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-gray-50 to-blue-50 font-sans flex flex-col min-h-screen">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-700 text-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-6 py-3 flex justify-between items-center">
+            <h1 class="text-2xl font-semibold tracking-tight">🎓 Student Dashboard</h1>
+            <div class="space-x-4 text-sm font-medium">
+                <a href="{% url 'home' %}" class="hover:text-blue-200 transition">Home</a>
+                <a href="{% url 'students' %}" class="hover:text-blue-200 transition">Students</a>
+                {% if user.is_authenticated %}
+                    <a href="{% url 'profile' %}" class="hover:text-blue-200 transition">Profile</a>
+                    <a href="{% url 'logout' %}" class="hover:text-blue-200 transition">Logout</a>
+                {% else %}
+                    <a href="{% url 'login' %}" class="hover:text-blue-200 transition">Login</a>
+                    <a href="{% url 'register' %}" class="hover:text-blue-200 transition">Register</a>
+                {% endif %}
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="flex-grow container mx-auto px-6 py-10">
+
+        <!-- Student Details Card -->
+        <div class="bg-white rounded-2xl shadow-xl p-10 max-w-4xl mx-auto border border-gray-100">
+            <h2 class="text-3xl font-bold text-gray-800 mb-8 text-center border-b pb-4">
+                Student Marks & Profile
+            </h2>
+
+            <!-- Messages -->
+            {% if messages %}
+                <div class="mb-6">
+                    {% for message in messages %}
+                        <div class="px-5 py-3 rounded-lg mb-3 text-white text-sm
+                                    {% if message.tags == 'error' %}bg-red-500{% elif message.tags == 'success' %}bg-green-500{% else %}bg-blue-500{% endif %}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+
+            <!-- Student Info -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                        📘 Academic Details
+
+                    </h3>
+                <h4 class="mb-5">Total Marks : {{ total_marks.total_marks }}</h4>
+                    {% for smarks in student_marks %}
+                        <div class="mb-4">
+                            <p class="text-gray-600"><span class="font-medium">Subject:</span> {{ smarks.subject.subject_name }}</p>
+                            <p class="text-gray-600"><span class="font-medium">Marks:</span> {{ smarks.marks }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <div class="bg-gray-50 rounded-xl p-6 border border-gray-100 shadow-sm">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-4 flex items-center gap-2">
+                        🧍‍♂️ Personal Details
+                    </h3>
+                    <p class="text-gray-600 mb-2"><span class="font-medium">Address:</span> {{ student.student_address }}</p>
+                    <p class="text-gray-600 mb-2"><span class="font-medium">Phone:</span> {{ student.student_phone }}</p>
+                    <p class="text-gray-600 mb-2"><span class="font-medium">Enrollment Date:</span> {{ student.enrollment_date|date:"F j, Y" }}</p>
+                </div>
+            </div>
+
+            <!-- Action Buttons -->
+            <div class="flex justify-center space-x-5 mt-10">
+{#                <a href="{% url 'student_edit' student.id %}"#}
+                <a href="#"
+                   class="px-6 py-2.5 bg-indigo-600 text-white rounded-lg shadow hover:bg-indigo-700 hover:shadow-lg transition">
+                   ✏️ Edit
+                </a>
+{#                {% url 'student_delete' student.id %}#}
+                <form action="#"
+                      method="POST"
+                      onsubmit="return confirm('Are you sure you want to delete this student?');">
+                    {% csrf_token %}
+                    <button type="submit"
+                            class="px-6 py-2.5 bg-red-600 text-white rounded-lg shadow hover:bg-red-700 hover:shadow-lg transition">
+                        🗑️ Delete
+                    </button>
+                </form>
+            </div>
+
+            <div class="mt-8 text-center">
+                <a href="{% url 'students' %}" class="text-blue-600 font-medium hover:underline">
+                    ← Back to Student List
+                </a>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white border-t border-gray-200 text-gray-600 text-sm py-5 text-center">
+        © 2025 <span class="font-semibold">Student Dashboard</span>. All rights reserved.
+    </footer>
+
+</body>
+</html>
